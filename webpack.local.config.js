@@ -7,10 +7,10 @@ var ip = 'localhost'
 config.devtool = "#eval-source-map"
 
 config.entry = {
-  App1: [
+  App: [
     'webpack-dev-server/client?http://' + ip + ':3000',
     'webpack/hot/only-dev-server',
-    './reactjs/App1',
+    './reactjs/App',
   ],
 }
 
