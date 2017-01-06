@@ -1,13 +1,13 @@
 import React from "react"
-import { render } from "react-dom"
-import App1Container from "./containers/App1Container"
+import {render} from "react-dom"
+import Navbar from "./containers/Navbar"
 
 class App extends React.Component {
-  render() {
-    return (
-      <App1Container />
-    )
-  }
+    render() {
+        return (
+            <Navbar />
+        )
+    }
 }
 
 render(<App/>, document.getElementById('root'))
