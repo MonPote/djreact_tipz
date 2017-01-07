@@ -2,6 +2,11 @@ var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 var config = require('./webpack.local.config')
 
+
+if (module.hot) {
+  module.hot.accept();
+}
+
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
   hot: true,
