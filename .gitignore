@@ -1,2 +1,3 @@
 node_modules
 djreact/__pycache__/
+webpack-stats-local.json
