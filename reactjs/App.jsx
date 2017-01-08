@@ -1,27 +1,33 @@
 import React from "react"
 import {render} from "react-dom"
-import {Router, Route, Link, browserHistory} from 'react-router'
+import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
 
-import Navbar from "./containers/Navbar"
-import ProjectList from "./containers/ProjectList"
-
+import NavBar from './containers/Navbar'
+import HomeLayout from './containers/HomeLayout'
+import CreateProject from './containers/CreateProject'
+import CreateUser from './containers/CreateUser'
 
 class App extends React.Component {
     render() {
-        let brand = "cocaff ";
-
         return (
             <div>
-                <Navbar brand={brand} />
-                <h1>Accueil</h1>
-                <ProjectList />
+                <NavBar />
+                <div>
+                    {this.props.children}
+                </div>
             </div>
         )
     }
 }
 
-render((
+render(
     <Router history={browserHistory}>
-        <Route path="/" component={App}>
+        <Route path='/' component={App}>
+            <IndexRoute component={HomeLayout} />
+            <Route path='addedit' component={CreateProject} />
+            <Route path='test' component={CreateProject} />
+            <Route path='createUser' component={CreateUser} />
         </Route>
-    </Router>), document.getElementById('root'));
+    </Router>,
+    document.getElementById('root')
+);

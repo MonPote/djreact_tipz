@@ -9,7 +9,7 @@ export default class HomeProject extends React.Component {
                     <div className="panel-body">
                         <span className="col-lg-12">Gain : 1652 € / mois</span>
                         <span className="col-lg-12">Crée le : 15.10.2016</span>
-                        <textarea className="col-lg-12" rows="4" cols="50">Test</textarea>
+                        <textarea className="col-lg-12" rows="4" cols="50" defaultValue="Test"></textarea>
                         <div className="col-lg-offset-9">
                             <button className="btn btn-primary">Participer !</button>
                         </div>
