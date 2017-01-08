@@ -21,7 +21,15 @@ export default class AddDonation extends React.Component {
     addLocalDonation() {
         const donation = this.state;
         this.props.addDonation(donation);
-        this.setState({id: ++this.state.id})
+
+        const newState = {
+            id: ++this.state.id,
+            title: "",
+            desc: "",
+            amount: 0
+        };
+
+        this.setState(newState);
     }
 
     onChangeTitle(event) {
@@ -48,7 +56,7 @@ export default class AddDonation extends React.Component {
                         <span>Titre</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" onChange={this.onChangeTitle}/>
+                        <input className="form-control" value={this.state.title} onChange={this.onChangeTitle}/>
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -56,7 +64,7 @@ export default class AddDonation extends React.Component {
                         <span>Valeur (en € par mois)</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" onChange={this.onChangeAmount}/>
+                        <input className="form-control" value={this.state.amount} onChange={this.onChangeAmount}/>
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -64,7 +72,7 @@ export default class AddDonation extends React.Component {
                         <span>Description</span>
                     </div>
                     <div className="col-lg-6">
-                        <textarea className="form-control" onChange={this.onChangeDesc}></textarea>
+                        <textarea className="form-control" value={this.state.desc} onChange={this.onChangeDesc} />
                     </div>
                 </div>
                 <div className="col-lg-12 text-right">

@@ -11,37 +11,19 @@ export default class CreateProject extends React.Component {
             donations: []
         };
 
-        // [
-        //     {
-        //         title: "JE suis une donation",
-        //         amount: 12,
-        //         desc: "ça doit être une string"
-        //     }, {
-        //         title: "JE suis une donation",
-        //         amount: 12,
-        //         desc: "ça doit être une string"
-        //     }
-        // ]
-
         this.addDonation = this.addDonation.bind(this);
         this.deleteDonation = this.deleteDonation.bind(this);
     }
 
     addDonation(donation) {
-        console.log('inside create project = ', donation);
-
         this.state.donations.push(donation);
-
         this.setState({donations: this.state.donations});
-
-        // console.log("j'ajoute un don");
-        // this.state.donations.push(donation);
     }
 
     deleteDonation(id) {
-        this.state.donations.splice(id, 1)
-        this.setState({donations: this.state.donations})
-        console.log('Delete key', id)
+        this.state.donations.splice(id, 1);
+        this.setState({donations: this.state.donations});
+
     }
 
     render() {
