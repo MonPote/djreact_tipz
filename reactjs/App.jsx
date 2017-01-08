@@ -25,8 +25,8 @@ render(
         <Route path='/' component={App}>
             <IndexRoute component={HomeLayout} />
             <Route path='addedit' component={CreateProject} />
-            <Route path='test' component={CreateProject} />
             <Route path='createUser' component={CreateUser} />
+            <Route path='createProject' component={CreateProject} />
         </Route>
     </Router>,
     document.getElementById('root')
