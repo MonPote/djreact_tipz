@@ -5,13 +5,13 @@ export default class Donation extends React.Component {
         return (
             <div className="col-lg-12">
                 <div className="panel panel-default">
-                    <div className="panel-heading">Le petit don - 1 € / mois</div>
+                    <div className="panel-heading">{this.props.donation.title} - {this.props.donation.amount} € / mois</div>
                     <div className="panel-body">
-                        <span className="col-lg-12">blablabla</span>
+                        <span className="col-lg-12">{this.props.donation.desc}</span>
                         <div className="col-lg-12">
                             <div className="col-lg-offset-5">
                                 <button className="btn btn-primary">Modifier</button>
-                                <button className="btn btn-primary">Supprimer</button>
+                                <button className="btn btn-primary" onClick={() => this.props.deleteDonation(this.props.index)}>Supprimer</button>
                             </div>
                         </div>
                     </div>

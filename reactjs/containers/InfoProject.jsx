@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default class InfoProject extends React.Component {
+
     render() {
         return (
             <div>
