@@ -10,7 +10,7 @@ export default class Donation extends React.Component {
                         <span className="col-lg-12">{this.props.donation.desc}</span>
                         <div className="col-lg-12">
                             <div className="col-lg-offset-5">
-                                <button className="btn btn-primary">Modifier</button>
+                                <button className="btn btn-primary" onClick={() => this.props.modifyDonation(this.props.index, this.props.donation)}>Modifier</button>
                                 <button className="btn btn-primary" onClick={() => this.props.deleteDonation(this.props.index)}>Supprimer</button>
                             </div>
                         </div>
