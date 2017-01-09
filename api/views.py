@@ -2,6 +2,7 @@
 
 # Create your views here.
 
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -27,3 +28,6 @@ def task_list(request):
         else:
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+def index(request):
+    return HttpResponse("Hello, world.")
