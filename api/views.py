@@ -22,6 +22,7 @@ from api.models import Compensation
 
 from django.core import serializers
 
+
 @api_view(['GET', 'POST'])
 def task_list(request):
     """
@@ -41,12 +42,14 @@ def task_list(request):
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 @csrf_exempt
 def signup(request):
     stringBody = request.body.decode('utf-8')
     jsonBody = json.loads(stringBody)
     User.objects.create_user(username=jsonBody['userName'], password=jsonBody['password'])
     return HttpResponse('hello voice le vrai resultat')
+
 
 @csrf_exempt
 def signin(request):
@@ -65,6 +68,7 @@ def createProject(request):
     Project.objects.create(name="toto", description="description", author="auteur", contact="contact")
     return HttpResponse('ok')
 
+
 @api_view(['GET'])
 @csrf_exempt
 def display(request):
@@ -78,8 +82,30 @@ def display(request):
     # return HttpResponse(data)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['GET'])
+
+@api_view(['GET', 'POST'])
 @csrf_exempt
 def compensationCreation(request):
-    compensation = Compensation.objects.create(title="Comp", amount=100, description="estdesc", idProject=1)
+    stringBody = request.body.decode('utf-8')
+    jsonBody = json.loads(stringBody)
+    projectDetail = jsonBody['projectDetails']
+    compensations = jsonBody['compensations']
+    print(jsonBody)
+    # print('compensation = ', compensations)
+    project = Project.objects.create(
+        name=projectDetail['name'],
+        description=projectDetail['description'],
+        author=projectDetail['author'],
+        contact=projectDetail['contact'])
+
+    for compensation in compensations:
+        Compensation.objects.create(
+            title=compensation['title'],
+            amount=compensation['amount'],
+            description=compensation['description'],
+            idProject=project.pk
+        )
+
+    # print(jsonBody)
+    # compensation = Compensation.objects.create(title="Comp", amount=100, description="estdesc", idProject=1)
     return Response('OKAY')

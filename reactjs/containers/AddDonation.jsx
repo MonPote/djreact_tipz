@@ -28,7 +28,7 @@ export default class AddDonation extends React.Component {
                         <span>Description</span>
                     </div>
                     <div className="col-lg-6">
-                        <textarea className="form-control" value={this.props.currentCompensation.desc} onChange={this.props.onChangeDesc} />
+                        <textarea className="form-control" value={this.props.currentCompensation.description} onChange={this.props.onChangeDesc} />
                     </div>
                 </div>
                 <div className="col-lg-12 text-right">

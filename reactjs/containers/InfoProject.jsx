@@ -13,7 +13,7 @@ export default class InfoProject extends React.Component {
                         <span>Nom du projet</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" onChange={this.props.onChangeProjectTitle} />
+                        <input className="form-control" onChange={this.props.onChangeProjectName} />
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -29,7 +29,7 @@ export default class InfoProject extends React.Component {
                         <span>Auteur</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" />
+                        <input className="form-control" onChange={this.props.onChangeProjectAuthor} />
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -37,11 +37,11 @@ export default class InfoProject extends React.Component {
                         <span>Contact</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" />
+                        <input className="form-control" onChange={this.props.onChangeProjectContact} />
                     </div>
                 </div>
                 <div className="col-lg-12 text-right">
-                    <button className="btn btn-primary">Enregistrer les modifications</button>
+                    <button className="btn btn-primary" onClick={this.props.createProject}>Enregistrer les modifications</button>
                 </div>
             </div>
         );

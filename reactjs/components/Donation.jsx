@@ -7,7 +7,7 @@ export default class Donation extends React.Component {
                 <div className="panel panel-default">
                     <div className="panel-heading">{this.props.donation.title} - {this.props.donation.amount} € / mois</div>
                     <div className="panel-body">
-                        <span className="col-lg-12">{this.props.donation.desc}</span>
+                        <span className="col-lg-12">{this.props.donation.description}</span>
                         <div className="col-lg-12">
                             <div className="col-lg-offset-5">
                                 <button className="btn btn-primary" onClick={() => this.props.modifyDonation(this.props.index, this.props.donation)}>Modifier</button>

@@ -12,14 +12,14 @@ export default class CreateProject extends React.Component {
             compensations: [],
             currentCompensation: {
                 title: "",
-                desc: "",
+                description: "",
                 amount: 0
             },
             projectDetails: {
-                title: "",
-                amount: "",
+                name: "",
                 description: "",
-                idProject: 0
+                author: "",
+                contact: ""
             }
         };
         
@@ -32,10 +32,12 @@ export default class CreateProject extends React.Component {
         this.onChangeDesc = this.onChangeDesc.bind(this);
         this.onChangeAmount = this.onChangeAmount.bind(this);
 
-        this.onChangeProjectTitle = this.onChangeProjectTitle.bind(this);
-        this.onChangeProjectAmount = this.onChangeProjectAmount.bind(this);
+        this.onChangeProjectName = this.onChangeProjectName.bind(this);
+        this.onChangeProjectAuthor = this.onChangeProjectAuthor.bind(this);
         this.onChangeProjectDescription = this.onChangeProjectDescription.bind(this);
-        this.onChangeProjectIdProject = this.onChangeProjectIdProject.bind(this);
+        this.onChangeProjectContact = this.onChangeProjectContact.bind(this);
+
+        this.createProject = this.createProject.bind(this);
     }
 
     componentWillMount() {
@@ -44,7 +46,7 @@ export default class CreateProject extends React.Component {
 
     deleteDonation(id) {
         this.state.compensations.splice(id, 1);
-        this.setState({compensations: this.state.compensations});
+            this.setState({compensations: this.state.compensations});
     }
 
     modifyDonation(index, donation) {
@@ -62,7 +64,7 @@ export default class CreateProject extends React.Component {
 
         const newcurrentCompensation = {
             title: "",
-            desc: "",
+            description: "",
             amount: 0
         };
 
@@ -70,13 +72,13 @@ export default class CreateProject extends React.Component {
 
     }
 
-    onChangeProjectTitle(event) {
-        this.state.projectDetails.title = event.target.value;
+    onChangeProjectName(event) {
+        this.state.projectDetails.name = event.target.value;
         this.setState({projectDetails: this.state.projectDetails});
     }
 
-    onChangeProjectAmount(event) {
-        this.state.projectDetails.amount = event.target.value;
+    onChangeProjectAuthor(event) {
+        this.state.projectDetails.author = event.target.value;
         this.setState({projectDetails: this.state.projectDetails});
     }
 
@@ -85,8 +87,8 @@ export default class CreateProject extends React.Component {
         this.setState({projectDetails: this.state.projectDetails});
     }
 
-    onChangeProjectIdProject(event) {
-        this.state.projectDetails.idProject = event.target.value;
+    onChangeProjectContact(event) {
+        this.state.projectDetails.contact = event.target.value;
         this.setState({projectDetails: this.state.projectDetails});
     }
 
@@ -104,8 +106,34 @@ export default class CreateProject extends React.Component {
 
     onChangeDesc(event) {
         const newDonation = this.state.currentCompensation;
-        newDonation.desc = event.target.value;
+        newDonation.description = event.target.value;
         this.setState({currentCompensation: newDonation});
+    }
+
+    createProject() {
+        // const compensations = [{
+        //         title: "compensation1",
+        //         description: "description1",
+        //         amount: 13
+        //     }, {
+        //         title: "compensation2",
+        //         description: "description2",
+        //         amount: 42
+        //     },
+        // ];
+
+        const data = {
+            compensations: this.state.compensations,
+            projectDetails: this.state.projectDetails
+        };
+
+        const option = {
+            method: "POST",
+            body: JSON.stringify(data),
+        };
+
+        fetch('/api/compensationCreation/', option)
+            .then((response) => console.log(response));
     }
 
     render() {
@@ -116,10 +144,11 @@ export default class CreateProject extends React.Component {
                 </div>
                 <div className="col-lg-6 text-center">
                     <InfoProject
-                        onChangeTitle={this.onChangeProjectTitle}
-                        onChangeAmount={this.onChangeProjectAmount}
-                        onChangeDescription={this.onChangeProjectDescription}
-                        onChangeIdProject={this.onChangeProjectIdProject}
+                        onChangeProjectName={this.onChangeProjectName}
+                        onChangeProjectAuthor={this.onChangeProjectAuthor}
+                        onChangeProjectDescription={this.onChangeProjectDescription}
+                        onChangeProjectContact={this.onChangeProjectContact}
+                        createProject={this.createProject}
                     />
                 </div>
                 <div className="col-lg-6 text-center">
