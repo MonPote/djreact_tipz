@@ -5,7 +5,8 @@ import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router'
 import NavBar from './containers/Navbar'
 import HomeLayout from './containers/HomeLayout'
 import CreateProject from './containers/CreateProject'
-import CreateUser from './containers/CreateUser'
+import SignUp from './containers/SignUp'
+import SignIn from './containers/SignIn'
 
 class App extends React.Component {
     render() {
@@ -25,7 +26,8 @@ render(
         <Route path='/' component={App}>
             <IndexRoute component={HomeLayout} />
             <Route path='addedit' component={CreateProject} />
-            <Route path='createUser' component={CreateUser} />
+            <Route path='signUp' component={SignUp} />
+            <Route path='signIn' component={SignIn} />
             <Route path='createProject' component={CreateProject} />
         </Route>
     </Router>,

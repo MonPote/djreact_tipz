@@ -1,7 +1,7 @@
 import React from 'react'
 import 'whatwg-fetch'
 
-export default class CreateUser extends React.Component {
+export default class SignUp extends React.Component {
 
     constructor() {
         super();
@@ -70,7 +70,6 @@ export default class CreateUser extends React.Component {
                 </div>
                 <button className="btn btn-primary" onClick={this.submitUser}>Submit</button>
             </div>
-
         );
     }
 }
