@@ -12,7 +12,7 @@ export default class AddDonation extends React.Component {
                         <span>Titre</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" value={this.props.currentDonation.title} onChange={this.props.onChangeTitle}/>
+                        <input className="form-control" value={this.props.currentCompensation.title} onChange={this.props.onChangeTitle}/>
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -20,7 +20,7 @@ export default class AddDonation extends React.Component {
                         <span>Valeur (en € par mois)</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" value={this.props.currentDonation.amount} onChange={this.props.onChangeAmount}/>
+                        <input className="form-control" value={this.props.currentCompensation.amount} onChange={this.props.onChangeAmount}/>
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -28,7 +28,7 @@ export default class AddDonation extends React.Component {
                         <span>Description</span>
                     </div>
                     <div className="col-lg-6">
-                        <textarea className="form-control" value={this.props.currentDonation.desc} onChange={this.props.onChangeDesc} />
+                        <textarea className="form-control" value={this.props.currentCompensation.desc} onChange={this.props.onChangeDesc} />
                     </div>
                 </div>
                 <div className="col-lg-12 text-right">

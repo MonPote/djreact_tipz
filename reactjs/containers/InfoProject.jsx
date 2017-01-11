@@ -13,7 +13,7 @@ export default class InfoProject extends React.Component {
                         <span>Nom du projet</span>
                     </div>
                     <div className="col-lg-6">
-                        <input className="form-control" />
+                        <input className="form-control" onChange={this.props.onChangeProjectTitle} />
                     </div>
                 </div>
                 <div className="col-lg-12">
@@ -21,7 +21,7 @@ export default class InfoProject extends React.Component {
                         <span>Description</span>
                     </div>
                     <div className="col-lg-6">
-                        <textarea className="form-control" />
+                        <textarea className="form-control" onChange={this.props.onChangeProjectDescription} />
                     </div>
                 </div>
                 <div className="col-lg-12">

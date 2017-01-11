@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from api.models import Apitest
 from api.models import Project
+from api.models import Compensation
 
 class ApitestSerializer(serializers.ModelSerializer):
 
@@ -14,3 +15,9 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = ('id', 'name', 'description', 'author', 'contact')
+
+class CompensationSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Compensation
+        fields = ('title', 'amount', 'description', 'idProject')

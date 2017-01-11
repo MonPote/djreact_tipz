@@ -11,3 +11,9 @@ class Project(models.Model):
     description = models.TextField()
     author = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)
+
+class Compensation(models.Model):
+    title = models.CharField(max_length=100)
+    amount = models.IntegerField()
+    description = models.TextField()
+    idProject = models.IntegerField()

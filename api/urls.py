@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^signin/$', api_views.signin),
     url(r'^fake/$', api_views.createProject),
     url(r'^display/$', api_views.display),
+    url(r'^compensationCreation/$', api_views.compensationCreation)
     # url(r'^tasks/(?P<pk>[0-9]+)$', 'task_detail', name='task_detail'),
 ]
 
