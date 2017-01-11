@@ -13,15 +13,9 @@ export default class ProjectList extends React.Component {
     }
 
     componentDidMount() {
-        // recuperer des views la liste des projets en json
-        // transporme en list d'objet
-
-        fetch('/api/display/')
+        fetch('/api/projects/')
             .then(response => response.json())
-            .then(json => {
-                console.log(json)
-                this.setState({projects: json})
-            });
+            .then(json => {this.setState({projects: json})});
     }
 
     render() {

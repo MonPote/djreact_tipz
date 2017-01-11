@@ -71,15 +71,9 @@ def createProject(request):
 
 @api_view(['GET'])
 @csrf_exempt
-def display(request):
+def getAllProjects(request):
     projects = Project.objects.all()
     serializer = ProjectSerializer(projects, many=True)
-    # data = serializers.serialize("json", projects)
-    # print(projects)
-    # print(serializer)
-    # print(serializer.data)
-    # print(data)
-    # return HttpResponse(data)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
