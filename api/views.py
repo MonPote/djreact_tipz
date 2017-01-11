@@ -1,8 +1,12 @@
 # from django.shortcuts import render
 
 # Create your views here.
+import json
+import codecs
 
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -39,3 +43,10 @@ def createTest(request):
     user.is_superuser = True
     user.save()
     return HttpResponse('createTest')
+
+@csrf_exempt
+def signup(request):
+    stringBody = request.body.decode('utf-8')
+    jsonBody = json.loads(stringBody)
+    User.objects.create_user(username=jsonBody['userName'], password=jsonBody['password'])
+    return HttpResponse('hello voice le vrai resultat')
