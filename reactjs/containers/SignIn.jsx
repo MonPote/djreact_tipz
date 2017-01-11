@@ -1,5 +1,6 @@
 import React from 'react'
-import { browserHistory } from 'react-router';
+import {browserHistory} from 'react-router';
+import 'whatwg-fetch'
 
 export default class SignIn extends React.Component {
     constructor() {
@@ -24,10 +25,30 @@ export default class SignIn extends React.Component {
     }
 
     signIn() {
-        localStorage.setItem('user', this.state.email);
-        localStorage.setItem('password', this.state.password);
+        const data = {
+            userName: this.state.email,
+            password: this.state.password
+        };
 
-        browserHistory.push('/');
+        const option = {
+            method: "POST",
+            body: JSON.stringify(data),
+            credentials: "same-origin"
+        };
+
+        fetch('/api/signin/', option)
+            .then((response) => {
+                return response.text()
+            })
+            .then((body) => {
+                if (body === 'EXIST') {
+                    localStorage.setItem('user', this.state.email);
+                    localStorage.setItem('password', this.state.password);
+                    browserHistory.push('/');
+                } else {
+                    console.log('user does not exist');
+                }
+            });
     }
 
     render() {

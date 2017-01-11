@@ -2,10 +2,10 @@
 
 # Create your views here.
 import json
-import codecs
 
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate
 
 from rest_framework import status
 from rest_framework.decorators import api_view
@@ -35,18 +35,20 @@ def task_list(request):
             return Response(
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-def index(request):
-    return HttpResponse(request.GET.get('hello'))
-
-def createTest(request):
-    user = User.objects.create_user(username='SimonW', password='johnpassword')
-    user.is_superuser = True
-    user.save()
-    return HttpResponse('createTest')
-
 @csrf_exempt
 def signup(request):
     stringBody = request.body.decode('utf-8')
     jsonBody = json.loads(stringBody)
     User.objects.create_user(username=jsonBody['userName'], password=jsonBody['password'])
     return HttpResponse('hello voice le vrai resultat')
+
+@csrf_exempt
+def signin(request):
+    stringBody = request.body.decode('utf-8')
+    jsonBody = json.loads(stringBody)
+    user = authenticate(username=jsonBody['userName'], password=jsonBody['password'])
+    value = "EXIST"
+    if not user:
+        value = "NOTEXIST"
+
+    return HttpResponse(value)
