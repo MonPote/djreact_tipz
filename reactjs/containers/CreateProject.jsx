@@ -2,6 +2,7 @@ import React from 'react'
 import InfoProject from './InfoProject'
 import AddDonation from './AddDonation'
 import Donation from '../components/Donation'
+import {browserHistory} from 'react-router'
 
 export default class CreateProject extends React.Component {
     constructor() {
@@ -23,6 +24,10 @@ export default class CreateProject extends React.Component {
         this.onChangeTitle = this.onChangeTitle.bind(this);
         this.onChangeDesc = this.onChangeDesc.bind(this);
         this.onChangeAmount = this.onChangeAmount.bind(this);
+    }
+
+    componentWillMount() {
+        if (localStorage.getItem('userName') === null) browserHistory.push('/');
     }
 
     deleteDonation(id) {

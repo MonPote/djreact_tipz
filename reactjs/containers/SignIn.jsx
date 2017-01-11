@@ -42,10 +42,11 @@ export default class SignIn extends React.Component {
             })
             .then((body) => {
                 if (body === 'EXIST') {
-                    localStorage.setItem('user', this.state.email);
+                    localStorage.setItem('userName', this.state.email);
                     localStorage.setItem('password', this.state.password);
                     browserHistory.push('/');
                 } else {
+                    // FIXME
                     console.log('user does not exist');
                 }
             });
