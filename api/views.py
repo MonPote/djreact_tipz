@@ -10,6 +10,8 @@ from rest_framework.response import Response
 from api.models import Apitest
 from api.serializers import ApitestSerializer
 
+from django.contrib.auth.models import User
+
 @api_view(['GET', 'POST'])
 def task_list(request):
     """
@@ -30,4 +32,10 @@ def task_list(request):
                 serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 def index(request):
-    return HttpResponse("Hello, world.")
+    return HttpResponse(request.GET.get('hello'))
+
+def createTest(request):
+    user = User.objects.create_user(username='SimonW', password='johnpassword')
+    user.is_superuser = True
+    user.save()
+    return HttpResponse('createTest')
