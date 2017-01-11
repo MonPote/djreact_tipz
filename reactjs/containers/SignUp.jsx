@@ -29,26 +29,26 @@ export default class SignUp extends React.Component {
         };
 
 
-         fetch('http://localhost:8000/api/signup/', option).then((response) => {
+        fetch('/api/signup/', option).then((response) => {
             console.log('response status : ', response.status);
             console.log('response text : ', response.statusText);
+            // FIXME Need checking
             // console.log('res : ', response.text());
             // response.status     //=> number 100–599
             // response.statusText //=> String
             // response.headers    //=> Headers
             // response.url        //=> String
-
             return response.text()
         }, function (error) {
             console.log(error.message);
         })
     }
 
-    onChangeEmail(event){
+    onChangeEmail(event) {
         this.setState({email: event.target.value});
     }
 
-    onChangePassword(event){
+    onChangePassword(event) {
         this.setState({password: event.target.value});
     }
 
@@ -66,7 +66,7 @@ export default class SignUp extends React.Component {
                 <div className="form-group">
                     <label htmlFor="exampleInputPassword1">Password</label>
                     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"
-                    onChange={this.onChangePassword}/>
+                           onChange={this.onChangePassword}/>
                 </div>
                 <button className="btn btn-primary" onClick={this.submitUser}>Submit</button>
             </div>

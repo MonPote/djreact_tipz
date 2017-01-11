@@ -16,6 +16,11 @@ from api.serializers import ApitestSerializer
 
 from django.contrib.auth.models import User
 
+from api.models import Project
+from api.serializers import ProjectSerializer
+
+from django.core import serializers
+
 @api_view(['GET', 'POST'])
 def task_list(request):
     """
@@ -52,3 +57,22 @@ def signin(request):
         value = "NOTEXIST"
 
     return HttpResponse(value)
+
+
+@csrf_exempt
+def createProject(request):
+    Project.objects.create(name="toto", description="description", author="auteur", contact="contact")
+    return HttpResponse('ok')
+
+@api_view(['GET'])
+@csrf_exempt
+def display(request):
+    projects = Project.objects.all()
+    serializer = ProjectSerializer(projects, many=True)
+    # data = serializers.serialize("json", projects)
+    # print(projects)
+    # print(serializer)
+    # print(serializer.data)
+    # print(data)
+    # return HttpResponse(data)
+    return Response(serializer.data, status=status.HTTP_200_OK)

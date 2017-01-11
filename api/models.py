@@ -5,3 +5,9 @@ class Apitest(models.Model):
     completed = models.BooleanField(default=False)
     title = models.CharField(max_length=100)
     description = models.TextField()
+
+class Project(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField()
+    author = models.CharField(max_length=100)
+    contact = models.CharField(max_length=100)
