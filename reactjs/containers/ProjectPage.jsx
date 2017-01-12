@@ -7,19 +7,22 @@ export default class ProjectPage extends React.Component {
         super();
 
         this.state = {
-            projects: []
+            compensation: []
         }
     }
 
     componentDidMount() {
-        fetch('/api/projects/')
-            .then(response => response.json())
-            .then(json => {
-                this.setState({projects: json})
-            });
+        // fetch('/api/projects/')
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         this.setState({projects: json})
+        //     });
 
 // /api/compensation/23
-        
+        fetch(`/api/compensation/${this.props.params.id}`)
+            .then(response => response.json())
+            .then(json => this.setState({compensation: json}))
+            .then(() => console.log(this.state.compensation));
         // fetch(`/api/compensation/${this.props.param.id}`)
         // fetch compensation liee au projet
 
