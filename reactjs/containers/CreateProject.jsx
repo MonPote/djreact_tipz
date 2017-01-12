@@ -1,7 +1,7 @@
 import React from 'react'
 import InfoProject from './InfoProject'
-import AddDonation from './AddDonation'
-import Donation from '../components/Donation'
+import AddCompensation from './AddCompensation'
+import Compensation from '../components/Compensation'
 import {browserHistory} from 'react-router'
 
 export default class CreateProject extends React.Component {
@@ -59,8 +59,8 @@ export default class CreateProject extends React.Component {
      * Add donation function
      */
     addDonation() {
-        const donation = this.state.currentCompensation;
-        this.state.compensations.push(donation);
+        const compensation = this.state.currentCompensation;
+        this.state.compensations.push(compensation);
 
         const newcurrentCompensation = {
             title: "",
@@ -111,17 +111,6 @@ export default class CreateProject extends React.Component {
     }
 
     createProject() {
-        // const compensations = [{
-        //         title: "compensation1",
-        //         description: "description1",
-        //         amount: 13
-        //     }, {
-        //         title: "compensation2",
-        //         description: "description2",
-        //         amount: 42
-        //     },
-        // ];
-
         const data = {
             compensations: this.state.compensations,
             projectDetails: this.state.projectDetails
@@ -152,7 +141,7 @@ export default class CreateProject extends React.Component {
                     </div>
                     <div className="col-lg-6">
                         <div>
-                            <AddDonation
+                            <AddCompensation
                                 currentCompensation={this.state.currentCompensation}
                                 addDonation={this.addDonation}
                                 onChangeTitle={this.onChangeTitle}
@@ -160,12 +149,12 @@ export default class CreateProject extends React.Component {
                                 onChangeDesc={this.onChangeDesc}
                             />
                             {
-                                this.state.compensations.map((donation, index) => {
+                                this.state.compensations.map((compensation, index) => {
                                     return (
-                                        <Donation
+                                        <Compensation
                                             key={index}
                                             index={index}
-                                            donation={donation}
+                                            compensation={compensation}
                                             modifyDonation={this.modifyDonation}
                                             deleteDonation={this.deleteDonation}
                                         />
