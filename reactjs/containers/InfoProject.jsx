@@ -46,9 +46,8 @@ export default class InfoProject extends React.Component {
                         <input className="form-control" onChange={this.props.onChangeProjectContact}/>
                     </div>
                     <div className="form-group text-right">
-                         <button className="btn btn-primary" onClick={this.props.createProject}>Enregistrer les
-                            modifications
-                        </button>
+                         <button className="btn btn-primary" onClick={this.props.createProject}
+                         >Créer le nouveau projet</button>
                     </div>
                 </div>
             </div>

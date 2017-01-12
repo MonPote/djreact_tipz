@@ -18,7 +18,9 @@ from django.contrib.auth.models import User
 
 from api.models import Project
 from api.serializers import ProjectSerializer
+
 from api.models import Compensation
+from api.serializers import CompensationSerializer
 
 from django.core import serializers
 
@@ -103,3 +105,11 @@ def compensationCreation(request):
     # print(jsonBody)
     # compensation = Compensation.objects.create(title="Comp", amount=100, description="estdesc", idProject=1)
     return Response('OKAY')
+
+@api_view(['GET'])
+@csrf_exempt
+def getCompensationsOfOneProject(request, pk):
+    compensation = Compensation.objects.filter(idProject=pk)
+    serializer = CompensationSerializer(compensation, many=True)
+    print(serializer.data)
+    return Response(serializer.data)

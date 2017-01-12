@@ -2,10 +2,34 @@ import React from 'react'
 import ProjectCompensation from '../components/ProjectCompensation'
 
 export default class ProjectPage extends React.Component {
+
+    constructor() {
+        super();
+
+        this.state = {
+            projects: []
+        }
+    }
+
+    componentDidMount() {
+        fetch('/api/projects/')
+            .then(response => response.json())
+            .then(json => {
+                this.setState({projects: json})
+            });
+
+// /api/compensation/23
+        
+        // fetch(`/api/compensation/${this.props.param.id}`)
+        // fetch compensation liee au projet
+
+    }
+
     render() {
         return (
             <div className="panel panel-info">
-                <div className="panel-heading"><span style={{fontSize: `24px`}}>Un super project - crée le 2 oct. 2016</span></div>
+                <div className="panel-heading"><span
+                    style={{fontSize: `24px`}}>Un super project - crée le 2 oct. 2016</span></div>
                 <div className="panel-body">
                     <div className="col-lg-6">
                         <div className='panel panel-info'>
@@ -25,9 +49,9 @@ export default class ProjectPage extends React.Component {
                         <div className='panel panel-info'>
                             <div className="panel-heading">Liste des compensations</div>
                             <div className="panel-body">
-                                <ProjectCompensation compensation={{id: 1}} />
-                                <ProjectCompensation compensation={{id: 2}} />
-                                <ProjectCompensation compensation={{id: 3}} />
+                                <ProjectCompensation compensation={{id: 1}}/>
+                                <ProjectCompensation compensation={{id: 2}}/>
+                                <ProjectCompensation compensation={{id: 3}}/>
                             </div>
                         </div>
                     </div>
