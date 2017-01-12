@@ -127,3 +127,16 @@ def getOneCompensation(request, pk):
     serializer = CompensationSerializer(compensation)
     return Response(serializer.data)
 
+@api_view(['GET'])
+@csrf_exempt
+def addCompensationToProject(request, pk):
+    compensation = Compensation.objects.get(id=pk)
+    compensationAmount = getattr(compensation, 'amount')
+    projectId = getattr(compensation, 'idProject')
+
+    project = Project.objects.get(id=projectId)
+    project.sumDonation = project.sumDonation + compensationAmount
+    project.save()
+
+    return Response('OKAY')
+

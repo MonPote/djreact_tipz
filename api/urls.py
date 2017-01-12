@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^compensationCreation/$', api_views.compensationCreation),
     url(r'^compensation/(?P<pk>[0-9]+)$', api_views.getCompensationsOfOneProject),
     url(r'^singleCompensation/(?P<pk>[0-9]+)$', api_views.getOneCompensation),
+    url(r'^addCompensationAmount/(?P<pk>[0-9]+)$', api_views.addCompensationToProject)
     # url(r'^tasks/(?P<pk>[0-9]+)$', 'task_detail', name='task_detail'),
 ]
 

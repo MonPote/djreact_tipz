@@ -8,7 +8,10 @@ export default class CompensationPage extends React.Component {
             project: {},
             compensation: {}
         }
+
+        this.addCompensationAmount = this.addCompensationAmount.bind(this);
     }
+
     componentDidMount() {
         // fetcher la compensation
         // fetcher le projet
@@ -24,25 +27,47 @@ export default class CompensationPage extends React.Component {
                     .then(json => this.setState({project: json}));
             });
     }
+
+    addCompensationAmount() {
+        // const data = {
+        //
+        // };
+        //
+        // const option = {
+        //     method: 'POST',
+        //     body: JSON.stringify(data),
+        // };
+        fetch(`/api/addCompensationAmount/${this.state.compensation.id}`)
+            .then(response => {
+                console.log(response);
+            });
+    }
+
     render() {
         return (
-            <div className="panel panel-info">
-                <div className="panel-heading"><span style={{fontSize: `24px`}}>Je participe !</span></div>
-                <div className="panel panel-default">
+            <div className="container">
+                <div className="panel panel-info">
+                    <div className="panel-heading"><span style={{fontSize: `24px`}}>Je participe !</span></div>
                     <div className="panel-body">
                         <div>
-                            <span>Vous confirmez votre participation à hauteur de XXXXX euros(s), par mois au projet TITRE de AUTEUR </span>
+                            <span>
+                                Vous confirmez votre participation à hauteur de {this.state.compensation.amount}
+                                euros(s)
+                                , par mois au projet {this.state.project.name} de {this.state.project.author}
+                                </span>
                         </div>
                         <div className='panel panel-info'>
-                            <div className="panel-heading">Panel heading</div>
+                            <div className="panel-heading">{this.state.compensation.title}</div>
                             <div className="panel-body">
                                 <div className="col-lg-12">
-                                    <span>dshjgadjksahdjkashdjkhsajkdhajkshdjkhjkdhjsak</span>
+                                    <span>{this.state.compensation.description}</span>
                                 </div>
-                                <button className="btn btn-info"
-                                        onClick={() => console.log('/api/addCompensationAmount/:amount')}
-                                >J'accepte
-                                </button>
+                                <div className="text-right">
+                                    <button className="btn btn-info"
+                                            onClick={this.addCompensationAmount}
+                                    >J'accepte
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
