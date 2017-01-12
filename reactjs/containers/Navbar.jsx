@@ -13,14 +13,14 @@ export default class Navbar extends React.Component {
         if (localStorage.getItem('userName') === null) {
             header = (
                 <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="signIn">Connexion</Link></li>
-                    <li><Link to="signUp">Inscription</Link></li>
+                    <li><Link to="signIn" activeClassName="active">Connexion</Link></li>
+                    <li><Link to="signUp" activeClassName="active">Inscription</Link></li>
                 </ul>
             );
         } else {
             header = (
                 <ul className="nav navbar-nav navbar-right">
-                    <li><Link to="/" onClick={this.disconnect}>Deconnexion</Link></li>
+                    <li><Link to="/" activeClassName="active" onClick={this.disconnect}>Deconnexion</Link></li>
                 </ul>
             );
         }
@@ -33,12 +33,13 @@ export default class Navbar extends React.Component {
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
-                            <li className="active"><Link to="/">Accueil</Link></li>
-                            {localStorage.getItem('userName') === null
+                            <li><Link to="/" activeClassName="active">Accueil</Link></li>
+                            {
+                                localStorage.getItem('userName') === null
                                 ? null
                                 : <li><Link to='createProject'>Créer mon projet</Link></li>
                             }
-                            <li><Link to='test'>Les meilleurs projets</Link></li>
+                            <li><Link to='test' activeClassName="active">Les meilleurs projets</Link></li>
                         </ul>
 
                         {this.displayAuth()}
