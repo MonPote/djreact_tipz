@@ -15,7 +15,7 @@ export default class AddCompensation extends React.Component {
                     </div>
                     <div className="form-group">
                         <label>Valeur (en € par mois)</label>
-                        <input className="form-control" value={this.props.currentCompensation.amount}
+                        <input className="form-control" value={this.props.currentCompensation.amount} type="number"
                                onChange={this.props.onChangeAmount}/>
                     </div>
                     <div className="form-group">

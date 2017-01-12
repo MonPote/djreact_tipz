@@ -8,7 +8,7 @@ export default class Compensation extends React.Component {
                 <div className="panel-body">
                     <span className="col-lg-12">{this.props.compensation.description}</span>
                     <div className="col-lg-12">
-                        <div className="col-lg-offset-5">
+                        <div className="text-right">
                             <button className="btn btn-primary"
                                     onClick={() => this.props.modifycompensation(this.props.index, this.props.compensation)}>
                                 Modifier

@@ -59,7 +59,13 @@ export default class CreateProject extends React.Component {
      * Add donation function
      */
     addDonation() {
-        const compensation = this.state.currentCompensation;
+        let compensation = this.state.currentCompensation;
+        compensation.amount = parseInt(compensation.amount);
+
+        if (compensation.amount <= 0 || compensation.title === "" || compensation.description === "") {
+            console.log('Amout or title is not correct');
+            return;
+        }
         this.state.compensations.push(compensation);
 
         const newcurrentCompensation = {
@@ -111,6 +117,10 @@ export default class CreateProject extends React.Component {
     }
 
     createProject() {
+        if (this.state.compensations.length === 0) {
+            console.log('cannot create compensation');
+            return;
+        }
         const data = {
             compensations: this.state.compensations,
             projectDetails: this.state.projectDetails
@@ -161,8 +171,8 @@ export default class CreateProject extends React.Component {
                                             key={index}
                                             index={index}
                                             compensation={compensation}
-                                            modifyDonation={this.modifyDonation}
-                                            deleteDonation={this.deleteDonation}
+                                            modifycompensation={this.modifyDonation}
+                                            deletecompensation={this.deleteDonation}
                                         />
                                     );
                                 })
