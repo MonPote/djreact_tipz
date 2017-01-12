@@ -1,4 +1,5 @@
 import React from "react"
+import {browserHistory} from 'react-router'
 
 export default class CompensationPage extends React.Component {
     constructor() {
@@ -7,7 +8,7 @@ export default class CompensationPage extends React.Component {
         this.state = {
             project: {},
             compensation: {}
-        }
+        };
 
         this.addCompensationAmount = this.addCompensationAmount.bind(this);
     }
@@ -29,17 +30,13 @@ export default class CompensationPage extends React.Component {
     }
 
     addCompensationAmount() {
-        // const data = {
-        //
-        // };
-        //
-        // const option = {
-        //     method: 'POST',
-        //     body: JSON.stringify(data),
-        // };
         fetch(`/api/addCompensationAmount/${this.state.compensation.id}`)
             .then(response => {
-                console.log(response);
+                if (response.status >= 200 && response.status < 300)
+                    browserHistory.push('/');
+                else {
+                    console.log('ERROR: ', response.status, ' STATUSTXT : ', response.statusText);
+                }
             });
     }
 

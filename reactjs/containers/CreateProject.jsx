@@ -122,7 +122,13 @@ export default class CreateProject extends React.Component {
         };
 
         fetch('/api/compensationCreation/', option)
-            .then((response) => console.log(response));
+            .then((response) => {
+                if (response.status >= 200 && response.status < 300)
+                    browserHistory.push('/');
+                else {
+                    console.log('ERROR: ', response.status, ' STATUSTXT : ', response.statusText);
+                }
+            });
     }
 
     render() {
