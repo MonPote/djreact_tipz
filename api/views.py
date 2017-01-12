@@ -22,8 +22,6 @@ from api.serializers import ProjectSerializer
 from api.models import Compensation
 from api.serializers import CompensationSerializer
 
-from django.core import serializers
-
 
 @api_view(['GET', 'POST'])
 def task_list(request):
@@ -49,8 +47,12 @@ def task_list(request):
 def signup(request):
     stringBody = request.body.decode('utf-8')
     jsonBody = json.loads(stringBody)
-    User.objects.create_user(username=jsonBody['userName'], password=jsonBody['password'])
-    return HttpResponse('hello voice le vrai resultat')
+    user = User.objects.create_user(username=jsonBody['userName'], password=jsonBody['password'])
+    value = "OK"
+    if not user:
+        value = "NOK"
+
+    return HttpResponse(value)
 
 
 @csrf_exempt

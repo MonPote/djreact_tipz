@@ -45,15 +45,14 @@ export default class SignIn extends React.Component {
         if (!this.checkInput()) {
             this.setState({error: true, errorMsg: `Un ou plusieurs de vos champs sont erronés`});
             return;
+        } else {
+            this.setState({error: false, errorMsg: ''});
         }
-
-        this.setState({error: false, errorMsg: ''});
 
         const data = {
             userName: this.state.email,
             password: this.state.password
         };
-
         const option = {
             method: "POST",
             body: JSON.stringify(data),
@@ -79,7 +78,7 @@ export default class SignIn extends React.Component {
             <div className="container">
                 <div style={{width: `50%`, marginLeft: `25%`}}>
                     <div className="panel panel-info">
-                        <div className="panel-heading"><span style={{fontSize: `24px`}}>Se connecter</span></div>
+                        <div className="panel-heading"><span style={{fontSize: `24px`}}>Connexion</span></div>
                         <div className="panel-body">
                             <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Adresse Email</label>
@@ -93,7 +92,7 @@ export default class SignIn extends React.Component {
                             <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Mot de passe</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1"
-                                       placeholder="Password"
+                                       placeholder="Mot de passe"
                                        onChange={this.onChangePassword}/>
                             </div>
                             <div className="text-right">
