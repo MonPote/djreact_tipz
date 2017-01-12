@@ -3,7 +3,6 @@ import React from 'react';
 import {Link} from 'react-router'
 
 export default class Navbar extends React.Component {
-
     disconnect() {
         localStorage.clear();
     }
@@ -27,20 +26,43 @@ export default class Navbar extends React.Component {
         return header;
     }
 
+    displayUserNavigation() {
+        let header;
+        if (localStorage.getItem('userName') === null) {
+            header = (
+                <ul className="nav navbar-nav">
+                    <li><Link to="/" activeClassName="active">Tipz</Link></li>
+                    <li><Link to='best' activeClassName="active">Les meilleurs projets</Link></li>
+                </ul>
+            );
+        } else {
+            header = (
+                <ul className="nav navbar-nav">
+                    <li><Link to="/" activeClassName="active">Tipz</Link></li>
+                    <li><Link to='createProject'>Créer mon projet</Link></li>
+                    <li><Link to='userProjects'>Mes projets</Link></li>
+                </ul>
+            );
+        }
+
+        return header;
+    }
+
     render() {
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav">
-                            <li><Link to="/" activeClassName="active">Tipz</Link></li>
-                            {
-                                localStorage.getItem('userName') === null
-                                ? null
-                                : <li><Link to='createProject'>Créer mon projet</Link></li>
-                            }
-                            <li><Link to='best' activeClassName="active">Les meilleurs projets</Link></li>
-                        </ul>
+                        {/*<ul className="nav navbar-nav">*/}
+                            {/*<li><Link to="/" activeClassName="active">Tipz</Link></li>*/}
+                            {/*{*/}
+                                {/*localStorage.getItem('userName') === null*/}
+                                {/*? null*/}
+                                {/*: <li><Link to='createProject'>Créer mon projet</Link></li>*/}
+                            {/*}*/}
+                            {/*<li><Link to='best' activeClassName="active">Les meilleurs projets</Link></li>*/}
+                        {/*</ul>*/}
+                        {this.displayUserNavigation()}
 
                         {this.displayAuth()}
                     </div>

@@ -123,7 +123,8 @@ export default class CreateProject extends React.Component {
         }
         const data = {
             compensations: this.state.compensations,
-            projectDetails: this.state.projectDetails
+            projectDetails: this.state.projectDetails,
+            owner: localStorage.getItem('userName')
         };
 
         const option = {

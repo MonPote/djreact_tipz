@@ -94,13 +94,16 @@ def compensationCreation(request):
     jsonBody = json.loads(stringBody)
     projectDetail = jsonBody['projectDetails']
     compensations = jsonBody['compensations']
-    print(jsonBody)
-    # print('compensation = ', compensations)
+    owner = jsonBody['owner']
+
+    realOwner = User.objects.get(username=owner)
+
     project = Project.objects.create(
         name=projectDetail['name'],
         description=projectDetail['description'],
         author=projectDetail['author'],
-        contact=projectDetail['contact'])
+        contact=projectDetail['contact'],
+        ownerId=realOwner.id)
 
     for compensation in compensations:
         Compensation.objects.create(

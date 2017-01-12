@@ -10,6 +10,7 @@ import SignIn from './containers/SignIn'
 import ProjectPage from './containers/ProjectPage'
 import CompensationPage from './containers/CompensationPage'
 import BestProjectPage from './containers/BestProjectPage'
+import UserProjectsPage from './containers/UserProjectsPage'
 
 class App extends React.Component {
     render() {
@@ -35,6 +36,7 @@ render(
             <Route path='project/:id' component={ProjectPage} />
             <Route path='compensation/:id' component={CompensationPage} />
             <Route path='best' components={BestProjectPage} />
+            <Route path='userProjects' components={UserProjectsPage} />
         </Route>
     </Router>,
     document.getElementById('root')

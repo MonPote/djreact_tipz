@@ -12,6 +12,7 @@ class Project(models.Model):
     author = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)
     sumDonation = models.IntegerField(default=0)
+    ownerId = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
