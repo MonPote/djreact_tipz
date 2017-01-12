@@ -1,4 +1,5 @@
 import React from 'react'
+import ProjectCompensation from '../components/ProjectCompensation'
 
 export default class ProjectPage extends React.Component {
     render() {
@@ -22,15 +23,9 @@ export default class ProjectPage extends React.Component {
                     <div className="col-lg-6">
                         <div className='panel panel-default'>
                             <div className="panel-body">
-                                <div className='panel panel-info'>
-                                    <div className="panel-heading">Panel heading</div>
-                                    <div className="panel-body">
-                                        <div className="col-lg-12">
-                                            <span>dshjgadjksahdjkashdjkhsajkdhajkshdjkhjkdhjsak</span>
-                                        </div>
-                                        <button className="btn btn-info">Sélectionner</button>
-                                    </div>
-                                </div>
+                                <ProjectCompensation />
+                                <ProjectCompensation />
+                                <ProjectCompensation />
                             </div>
                         </div>
                     </div>
