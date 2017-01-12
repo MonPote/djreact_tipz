@@ -13,9 +13,10 @@ export default class HomeProject extends React.Component {
                         <span className="col-lg-12">Gain : {this.props.project.sumDonation} € / mois</span>
                         <span className="col-lg-12">Crée le : {moment(this.props.project.created_at).format('DD/MM/YYYY')}</span>
                         <div>
-                            <textarea className="col-lg-12" rows="4" cols="50" defaultValue={this.props.project.description} />
+                            <textarea className="col-lg-12" rows="8" cols="50" defaultValue={this.props.project.description} />
                         </div>
                         <div className="text-right">
+                            <br />
                             <button className="btn btn-primary"
                                     onClick={() => browserHistory.push(`/project/${this.props.project.id}`)}
                             >Participer !</button>

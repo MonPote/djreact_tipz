@@ -95,11 +95,7 @@ export default class SignUp extends React.Component {
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">Adresse Email</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1"
-                                           placeholder="example@gmail.com" onChange={this.onChangeEmail}/>
-                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email
-                                        with anyone
-                                        else.
-                                    </small>
+                                           placeholder="example@gmail.com" onChange={this.onChangeEmail} />
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Mot de passe</label>

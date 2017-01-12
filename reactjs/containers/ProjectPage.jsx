@@ -53,12 +53,12 @@ export default class ProjectPage extends React.Component {
                         <div className='panel panel-info'>
                             <div className="panel-heading">Détail du projet</div>
                             <div className="panel-body">
-                                <textarea className="form-control" value={this.state.project.description}/>
+                                <textarea className="form-control" value={this.state.project.description} rows="15"/>
                                 <div className="col-lg-12">
-                                    <span>Par : Bobby Wallace</span>
+                                    <span>Par : {this.state.project.author}</span>
                                 </div>
                                 <div className="col-lg-12">
-                                    <span>Contact : Patrick.ear@epita.fr</span>
+                                    <span>Contact : {this.state.project.contact}</span>
                                 </div>
                             </div>
                         </div>

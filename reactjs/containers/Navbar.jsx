@@ -33,7 +33,7 @@ export default class Navbar extends React.Component {
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav">
-                            <li><Link to="/" activeClassName="active">Accueil</Link></li>
+                            <li><Link to="/" activeClassName="active">Tipz</Link></li>
                             {
                                 localStorage.getItem('userName') === null
                                 ? null
