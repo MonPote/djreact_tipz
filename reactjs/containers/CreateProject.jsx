@@ -138,41 +138,41 @@ export default class CreateProject extends React.Component {
 
     render() {
         return (
-            <div className="col-lg-12">
-                <div>
-                    <h1>Mon projet</h1>
-                </div>
-                <div className="col-lg-6">
-                    <InfoProject
-                        onChangeProjectName={this.onChangeProjectName}
-                        onChangeProjectAuthor={this.onChangeProjectAuthor}
-                        onChangeProjectDescription={this.onChangeProjectDescription}
-                        onChangeProjectContact={this.onChangeProjectContact}
-                        createProject={this.createProject}
-                    />
-                </div>
-                <div className="col-lg-6">
-                    <div>
-                        <AddDonation
-                            currentCompensation={this.state.currentCompensation}
-                            addDonation={this.addDonation}
-                            onChangeTitle={this.onChangeTitle}
-                            onChangeAmount={this.onChangeAmount}
-                            onChangeDesc={this.onChangeDesc}
+            <div className="panel panel-info">
+                <div className="panel panel-heading"><span style={{fontSize: `24px`}}>Mon Nouveau Projet</span></div>
+                <div className="panel-body">
+                    <div className="col-lg-6">
+                        <InfoProject
+                            onChangeProjectName={this.onChangeProjectName}
+                            onChangeProjectAuthor={this.onChangeProjectAuthor}
+                            onChangeProjectDescription={this.onChangeProjectDescription}
+                            onChangeProjectContact={this.onChangeProjectContact}
+                            createProject={this.createProject}
                         />
-                        {
-                            this.state.compensations.map((donation, index) => {
-                                return (
-                                    <Donation
-                                        key={index}
-                                        index={index}
-                                        donation={donation}
-                                        modifyDonation={this.modifyDonation}
-                                        deleteDonation={this.deleteDonation}
-                                    />
-                                );
-                            })
-                        }
+                    </div>
+                    <div className="col-lg-6">
+                        <div>
+                            <AddDonation
+                                currentCompensation={this.state.currentCompensation}
+                                addDonation={this.addDonation}
+                                onChangeTitle={this.onChangeTitle}
+                                onChangeAmount={this.onChangeAmount}
+                                onChangeDesc={this.onChangeDesc}
+                            />
+                            {
+                                this.state.compensations.map((donation, index) => {
+                                    return (
+                                        <Donation
+                                            key={index}
+                                            index={index}
+                                            donation={donation}
+                                            modifyDonation={this.modifyDonation}
+                                            deleteDonation={this.deleteDonation}
+                                        />
+                                    );
+                                })
+                            }
+                        </div>
                     </div>
                 </div>
             </div>

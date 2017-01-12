@@ -4,11 +4,12 @@ import ProjectCompensation from '../components/ProjectCompensation'
 export default class ProjectPage extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Un super project - crée le 2 oct. 2016</h1>
-                <div className="container">
+            <div className="panel panel-info">
+                <div className="panel-heading"><span style={{fontSize: `24px`}}>Un super project - crée le 2 oct. 2016</span></div>
+                <div className="panel-body">
                     <div className="col-lg-6">
-                        <div className='panel panel-default'>
+                        <div className='panel panel-info'>
+                            <div className="panel-heading">Détail du projet</div>
                             <div className="panel-body">
                                 <textarea className="form-control" onChange={this.props.onChangeProjectDescription}/>
                                 <div className="col-lg-12">
@@ -21,7 +22,8 @@ export default class ProjectPage extends React.Component {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <div className='panel panel-default'>
+                        <div className='panel panel-info'>
+                            <div className="panel-heading">Liste des compensations</div>
                             <div className="panel-body">
                                 <ProjectCompensation compensation={{id: 1}} />
                                 <ProjectCompensation compensation={{id: 2}} />

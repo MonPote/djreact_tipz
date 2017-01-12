@@ -3,8 +3,8 @@ import React from "react"
 export default class CompensationPage extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Je participe !</h1>
+            <div className="panel panel-info">
+                <div className="panel-heading"><span style={{fontSize: `24px`}}>Je participe !</span></div>
                 <div className="panel panel-default">
                     <div className="panel-body">
                         <div>

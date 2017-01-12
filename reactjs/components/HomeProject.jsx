@@ -6,7 +6,7 @@ export default class HomeProject extends React.Component {
     render() {
         return (
             <div className="col-lg-4">
-                <div className="panel panel-default">
+                <div className="panel panel-info">
                     <div className="panel-heading">Projet #{this.props.project.id} - {this.props.project.name}</div>
                     <div className="panel-body">
                         <span className="col-lg-12">Gain : 1652 € / mois</span>

@@ -54,21 +54,33 @@ export default class SignUp extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputEmail1">Email address</label>
-                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                           placeholder="Enter email" onChange={this.onChangeEmail}/>
-                    <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone
-                        else.
-                    </small>
+            <div className="container">
+                <div style={{width: `50%`, marginLeft: `25%`}}>
+                    <div className="panel panel-info">
+                        <div className="panel-heading"><span style={{fontSize: `24px`}}>Se connecter</span></div>
+                        <div className="panel-body">
+                            <div>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputEmail1">Email address</label>
+                                    <input type="email" className="form-control" id="exampleInputEmail1"
+                                           aria-describedby="emailHelp"
+                                           placeholder="Enter email" onChange={this.onChangeEmail}/>
+                                    <small id="emailHelp" className="form-text text-muted">We'll never share your email
+                                        with anyone
+                                        else.
+                                    </small>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="exampleInputPassword1">Password</label>
+                                    <input type="password" className="form-control" id="exampleInputPassword1"
+                                           placeholder="Password"
+                                           onChange={this.onChangePassword}/>
+                                </div>
+                                <button className="btn btn-primary" onClick={this.submitUser}>Submit</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="exampleInputPassword1">Password</label>
-                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password"
-                           onChange={this.onChangePassword}/>
-                </div>
-                <button className="btn btn-primary" onClick={this.submitUser}>Submit</button>
             </div>
         );
     }
