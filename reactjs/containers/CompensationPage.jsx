@@ -1,6 +1,29 @@
 import React from "react"
 
 export default class CompensationPage extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            project: {},
+            compensation: {}
+        }
+    }
+    componentDidMount() {
+        // fetcher la compensation
+        // fetcher le projet
+        fetch(`/api/singleCompensation/${this.props.params.id}`)
+            .then(response => response.json())
+            .then(json => {
+                this.setState({compensation: json});
+                return json.idProject;
+            })
+            .then(id => {
+                fetch(`/api/project/${id}`)
+                    .then(response => response.json())
+                    .then(json => this.setState({project: json}));
+            });
+    }
     render() {
         return (
             <div className="panel panel-info">
@@ -17,7 +40,7 @@ export default class CompensationPage extends React.Component {
                                     <span>dshjgadjksahdjkashdjkhsajkdhajkshdjkhjkdhjsak</span>
                                 </div>
                                 <button className="btn btn-info"
-                                        onClick={() => console.log('/api/givecompensation/:amount')}
+                                        onClick={() => console.log('/api/addCompensationAmount/:amount')}
                                 >J'accepte
                                 </button>
                             </div>

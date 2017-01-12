@@ -31,7 +31,8 @@ export default class ProjectPage extends React.Component {
         return (
             <div className="panel panel-info">
                 <div className="panel-heading"><span
-                    style={{fontSize: `24px`}}>{this.state.project.name} - crée le {moment(this.state.project.created_at).format('D MMM. YYYY')}</span></div>
+                    style={{fontSize: `24px`}}>{this.state.project.name}
+                    - crée le {moment(this.state.project.created_at).format('D MMM. YYYY')}</span></div>
                 <div className="panel-body">
                     <div className="col-lg-6">
                         <div className='panel panel-info'>
@@ -52,7 +53,14 @@ export default class ProjectPage extends React.Component {
                             <div className="panel-heading">Liste des compensations</div>
                             <div className="panel-body">
                                 {
-                                    this.state.compensation.map(compensation => <ProjectCompensation key={compensation.id} compensation={compensation}/>)
+                                    this.state.compensation.map(compensation => {
+                                        return (
+                                            <ProjectCompensation
+                                                key={compensation.id}
+                                                compensation={compensation}
+                                            />
+                                        );
+                                    })
                                 }
                             </div>
                         </div>

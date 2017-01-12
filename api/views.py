@@ -119,3 +119,11 @@ def getCompensationsOfOneProject(request, pk):
     serializer = CompensationSerializer(compensation, many=True)
     print(serializer.data)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@csrf_exempt
+def getOneCompensation(request, pk):
+    compensation = Compensation.objects.get(id=pk)
+    serializer = CompensationSerializer(compensation)
+    return Response(serializer.data)
+
