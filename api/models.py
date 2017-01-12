@@ -17,3 +17,7 @@ class Compensation(models.Model):
     amount = models.IntegerField()
     description = models.TextField()
     idProject = models.IntegerField()
+
+class Donation(models.Model):
+    sponsor = models.CharField(max_length=100)
+    idCompensation = models.IntegerField()
