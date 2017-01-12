@@ -39,7 +39,7 @@ export default class Navbar extends React.Component {
                                 ? null
                                 : <li><Link to='createProject'>Créer mon projet</Link></li>
                             }
-                            <li><Link to='test' activeClassName="active">Les meilleurs projets</Link></li>
+                            <li><Link to='best' activeClassName="active">Les meilleurs projets</Link></li>
                         </ul>
 
                         {this.displayAuth()}

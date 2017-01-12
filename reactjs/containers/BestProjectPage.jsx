@@ -2,7 +2,7 @@ import React from 'react'
 
 import ProjectList from "./ProjectList"
 
-export default class HomeLayout extends React.Component {
+export default class BestProjectPage extends React.Component {
     render() {
         console.log('user = ', localStorage.getItem('userName'));
         return (
@@ -10,7 +10,7 @@ export default class HomeLayout extends React.Component {
                 <div className="panel panel-info">
                     <div className="panel-heading"><span style={{fontSize: `24px`}}>Accueil</span></div>
                     <div className="panel-body">
-                        <ProjectList sortedByAmount={false} />
+                        <ProjectList sortedByAmount={true} />
                     </div>
                 </div>
             </div>

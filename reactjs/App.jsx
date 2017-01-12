@@ -9,6 +9,7 @@ import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
 import ProjectPage from './containers/ProjectPage'
 import CompensationPage from './containers/CompensationPage'
+import BestProjectPage from './containers/BestProjectPage'
 
 class App extends React.Component {
     render() {
@@ -33,6 +34,7 @@ render(
             <Route path='createProject' component={CreateProject} />
             <Route path='project/:id' component={ProjectPage} />
             <Route path='compensation/:id' component={CompensationPage} />
+            <Route path='best' components={BestProjectPage} />
         </Route>
     </Router>,
     document.getElementById('root')

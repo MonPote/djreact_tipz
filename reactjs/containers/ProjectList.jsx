@@ -15,7 +15,13 @@ export default class ProjectList extends React.Component {
     componentDidMount() {
         fetch('/api/projects/')
             .then(response => response.json())
-            .then(json => {this.setState({projects: json})});
+            .then(json => {
+                const jsonResult = !this.props.sortedByAmount
+                    ? json
+                    : json.sort((projectA, projectB) => projectB.sumDonation - projectA.sumDonation);
+
+                this.setState({projects: jsonResult})
+            });
     }
 
     render() {
