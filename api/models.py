@@ -11,13 +11,19 @@ class Project(models.Model):
     description = models.TextField()
     author = models.CharField(max_length=100)
     contact = models.CharField(max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 class Compensation(models.Model):
     title = models.CharField(max_length=100)
     amount = models.IntegerField()
     description = models.TextField()
     idProject = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
 class Donation(models.Model):
     sponsor = models.CharField(max_length=100)
     idCompensation = models.IntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

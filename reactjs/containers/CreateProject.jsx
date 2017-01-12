@@ -82,8 +82,8 @@ export default class CreateProject extends React.Component {
         this.setState({projectDetails: this.state.projectDetails});
     }
 
-    onChangeProjectDescription(event) {
-        this.state.projectDetails.description = event.target.value;
+    onChangeProjectDescription(description) {
+        this.state.projectDetails.description = description;
         this.setState({projectDetails: this.state.projectDetails});
     }
 
