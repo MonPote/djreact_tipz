@@ -1,6 +1,9 @@
 import React from 'react'
 import moment from 'moment'
+import {browserHistory} from 'react-router'
+
 import ProjectCompensation from '../components/ProjectCompensation'
+
 
 export default class ProjectPage extends React.Component {
 
@@ -9,8 +12,12 @@ export default class ProjectPage extends React.Component {
 
         this.state = {
             project: {},
-            compensation: []
-        }
+            compensation: [],
+            error: false,
+            errorMsg: ''
+        };
+
+        this.triggerError = this.triggerError.bind(this);
     }
 
     componentDidMount() {
@@ -25,8 +32,16 @@ export default class ProjectPage extends React.Component {
             .then(() => console.log(this.state.compensation));
     }
 
+    triggerError(compensationId) {
+        if (localStorage.getItem('userName') === null) {
+            this.setState({error: true, errorMsg: 'Vous devez vous connecter pour pouvoir donner !'})
+        } else {
+            this.setState({error: false, errorMsg: ''});
+            browserHistory.push(`/compensation/${compensationId}`)
+        }
+    }
+
     render() {
-        console.log('çomps = ', this.state.compensation);
         // FIXME Gestion de non présence de la data
         return (
             <div className="panel panel-info">
@@ -58,9 +73,17 @@ export default class ProjectPage extends React.Component {
                                             <ProjectCompensation
                                                 key={compensation.id}
                                                 compensation={compensation}
+                                                triggerError={this.triggerError}
                                             />
                                         );
                                     })
+                                }
+                                {
+                                    !this.state.error
+                                        ? null
+                                        : <div className="alert alert-danger">
+                                            <strong>Erreur : </strong>{this.state.errorMsg}
+                                        </div>
                                 }
                             </div>
                         </div>

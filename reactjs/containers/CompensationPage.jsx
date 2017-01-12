@@ -1,6 +1,7 @@
 import React from "react"
 import {browserHistory} from 'react-router'
 
+
 export default class CompensationPage extends React.Component {
     constructor() {
         super();
@@ -13,9 +14,11 @@ export default class CompensationPage extends React.Component {
         this.addCompensationAmount = this.addCompensationAmount.bind(this);
     }
 
+    componentWillMount() {
+        if (localStorage.getItem('userName') === null) browserHistory.push('/');
+    }
+
     componentDidMount() {
-        // fetcher la compensation
-        // fetcher le projet
         fetch(`/api/singleCompensation/${this.props.params.id}`)
             .then(response => response.json())
             .then(json => {
