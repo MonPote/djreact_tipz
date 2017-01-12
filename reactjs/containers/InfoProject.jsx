@@ -24,50 +24,53 @@ export default class InfoProject extends React.Component {
         };
 
         return (
-            <div>
-                <div className="col-lg-12">
+            <div className="panel panel-info">
+                <div className="panel-heading">
                     <span>Informations générales</span>
                 </div>
-                <div className="col-lg-12">
-                    <div className="col-lg-4 text-center">
-                        <span>Nom du projet</span>
+
+                <div className="panel-body">
+                    <div className="col-lg-12">
+                        <div className="col-lg-4 text-center">
+                            <span>Nom du projet</span>
+                        </div>
+                        <div className="col-lg-8">
+                            <input className="form-control" onChange={this.props.onChangeProjectName}/>
+                        </div>
                     </div>
-                    <div className="col-lg-8">
-                        <input className="form-control" onChange={this.props.onChangeProjectName}/>
-                    </div>
-                </div>
-                <div className="col-lg-12">
-                    <div className="col-lg-4 text-center">
-                        <span>Description</span>
-                    </div>
-                    <div className="col-lg-8">
-                        {/*<RichTextEditor toolbarConfig={toolbarConfig}/>*/}
-                        <MyStatefulEditor onChange={this.props.onChangeProjectDescription}/>
-                    </div>
-                    {/*<div className="col-lg-6">*/}
+                    <div className="col-lg-12">
+                        <div className="col-lg-4 text-center">
+                            <span>Description</span>
+                        </div>
+                        <div className="col-lg-8">
+                            {/*<RichTextEditor toolbarConfig={toolbarConfig}/>*/}
+                            <MyStatefulEditor onChange={this.props.onChangeProjectDescription}/>
+                        </div>
+                        {/*<div className="col-lg-6">*/}
                         {/*<textarea className="form-control" onChange={this.props.onChangeProjectDescription}/>*/}
-                    {/*</div>*/}
-                </div>
-                <div className="col-lg-12">
-                    <div className="col-lg-4 text-center">
-                        <span>Auteur</span>
+                        {/*</div>*/}
                     </div>
-                    <div className="col-lg-8">
-                        <input className="form-control" onChange={this.props.onChangeProjectAuthor}/>
+                    <div className="col-lg-12">
+                        <div className="col-lg-4 text-center">
+                            <span>Auteur</span>
+                        </div>
+                        <div className="col-lg-8">
+                            <input className="form-control" onChange={this.props.onChangeProjectAuthor}/>
+                        </div>
                     </div>
-                </div>
-                <div className="col-lg-12">
-                    <div className="col-lg-4 text-center">
-                        <span>Contact</span>
+                    <div className="col-lg-12">
+                        <div className="col-lg-4 text-center">
+                            <span>Contact</span>
+                        </div>
+                        <div className="col-lg-8">
+                            <input className="form-control" onChange={this.props.onChangeProjectContact}/>
+                        </div>
                     </div>
-                    <div className="col-lg-8">
-                        <input className="form-control" onChange={this.props.onChangeProjectContact}/>
+                    <div className="col-lg-12 text-right">
+                        <button className="btn btn-primary" onClick={this.props.createProject}>Enregistrer les
+                            modifications
+                        </button>
                     </div>
-                </div>
-                <div className="col-lg-12 text-right">
-                    <button className="btn btn-primary" onClick={this.props.createProject}>Enregistrer les
-                        modifications
-                    </button>
                 </div>
             </div>
         );

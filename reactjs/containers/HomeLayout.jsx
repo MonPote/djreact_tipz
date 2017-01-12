@@ -7,8 +7,12 @@ export default class HomeLayout extends React.Component {
         console.log('user = ', localStorage.getItem('userName'));
         return (
             <div>
-                <h1>Accueil</h1>
-                <ProjectList />
+                <div className="panel panel-default">
+                    <div className="panel-heading"><span style={{fontSize: `24px`}}>Accueil</span></div>
+                    <div className="panel-body">
+                        <ProjectList />
+                    </div>
+                </div>
             </div>
         );
     }
