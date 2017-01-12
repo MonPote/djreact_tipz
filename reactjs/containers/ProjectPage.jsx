@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 import ProjectCompensation from '../components/ProjectCompensation'
 
 export default class ProjectPage extends React.Component {
@@ -7,38 +8,36 @@ export default class ProjectPage extends React.Component {
         super();
 
         this.state = {
+            project: {},
             compensation: []
         }
     }
 
     componentDidMount() {
-        // fetch('/api/projects/')
-        //     .then(response => response.json())
-        //     .then(json => {
-        //         this.setState({projects: json})
-        //     });
+        fetch(`/api/project/${this.props.params.id}`)
+            .then(response => response.json())
+            .then(json => this.setState({project: json}))
+            .then(() => console.log(this.state.project));
 
-// /api/compensation/23
         fetch(`/api/compensation/${this.props.params.id}`)
             .then(response => response.json())
             .then(json => this.setState({compensation: json}))
             .then(() => console.log(this.state.compensation));
-        // fetch(`/api/compensation/${this.props.param.id}`)
-        // fetch compensation liee au projet
-
     }
 
     render() {
+
+        // FIXME Gestion de non présence de la data
         return (
             <div className="panel panel-info">
                 <div className="panel-heading"><span
-                    style={{fontSize: `24px`}}>Un super project - crée le 2 oct. 2016</span></div>
+                    style={{fontSize: `24px`}}>{this.state.project.name} - crée le {moment(this.state.project.created_at).format('D MMM. YYYY')}</span></div>
                 <div className="panel-body">
                     <div className="col-lg-6">
                         <div className='panel panel-info'>
                             <div className="panel-heading">Détail du projet</div>
                             <div className="panel-body">
-                                <textarea className="form-control" onChange={this.props.onChangeProjectDescription}/>
+                                <textarea className="form-control" value={this.state.project.description}/>
                                 <div className="col-lg-12">
                                     <span>Par : Bobby Wallace</span>
                                 </div>

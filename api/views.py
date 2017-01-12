@@ -78,6 +78,12 @@ def getAllProjects(request):
     serializer = ProjectSerializer(projects, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+@api_view(['GET'])
+@csrf_exempt
+def getProject(request, pk):
+    project = Project.objects.get(id=pk)
+    serializer = ProjectSerializer(project, many=False)
+    return Response(serializer.data)
 
 @api_view(['GET', 'POST'])
 @csrf_exempt
