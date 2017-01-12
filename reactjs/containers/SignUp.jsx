@@ -61,7 +61,7 @@ export default class SignUp extends React.Component {
                         <div className="panel-body">
                             <div>
                                 <div className="form-group">
-                                    <label htmlFor="exampleInputEmail1">Email address</label>
+                                    <label htmlFor="exampleInputEmail1">Adresse Email</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1"
                                            aria-describedby="emailHelp"
                                            placeholder="Enter email" onChange={this.onChangeEmail}/>
@@ -71,12 +71,14 @@ export default class SignUp extends React.Component {
                                     </small>
                                 </div>
                                 <div className="form-group">
-                                    <label htmlFor="exampleInputPassword1">Password</label>
+                                    <label htmlFor="exampleInputPassword1">Mot de passe</label>
                                     <input type="password" className="form-control" id="exampleInputPassword1"
                                            placeholder="Password"
                                            onChange={this.onChangePassword}/>
                                 </div>
-                                <button className="btn btn-primary" onClick={this.submitUser}>Submit</button>
+                                <div className="text-right">
+                                    <button className="btn btn-primary" onClick={this.submitUser}>S'inscrire</button>
+                                </div>
                             </div>
                         </div>
                     </div>

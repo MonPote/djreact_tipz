@@ -59,7 +59,7 @@ export default class SignIn extends React.Component {
                     <div className="panel panel-info">
                         <div className="panel-heading"><span style={{fontSize: `24px`}}>Se connecter</span></div>
                         <div className="panel-body">
-                            <div>
+                            <div className="form-group">
                                 <label htmlFor="exampleInputEmail1">Adresse Email</label>
                                 <input type="email" className="form-control" id="exampleInputEmail1"
                                        aria-describedby="emailHelp"
@@ -69,14 +69,14 @@ export default class SignIn extends React.Component {
                                     else.
                                 </small>
                             </div>
-                            <div>
+                            <div className="form-group">
                                 <label htmlFor="exampleInputPassword1">Mot de passe</label>
                                 <input type="password" className="form-control" id="exampleInputPassword1"
                                        placeholder="Password"
                                        onChange={this.onChangePassword}/>
                             </div>
-                            <div>
-                                <button className="btn btn-primary" onClick={this.signIn}>Submit</button>
+                            <div className="text-right">
+                                <button className="btn btn-primary" onClick={this.signIn}>Se connecter</button>
                             </div>
                         </div>
                     </div>
