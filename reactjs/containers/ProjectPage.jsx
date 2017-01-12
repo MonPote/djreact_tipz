@@ -23,9 +23,9 @@ export default class ProjectPage extends React.Component {
                     <div className="col-lg-6">
                         <div className='panel panel-default'>
                             <div className="panel-body">
-                                <ProjectCompensation />
-                                <ProjectCompensation />
-                                <ProjectCompensation />
+                                <ProjectCompensation compensation={{id: 1}} />
+                                <ProjectCompensation compensation={{id: 2}} />
+                                <ProjectCompensation compensation={{id: 3}} />
                             </div>
                         </div>
                     </div>

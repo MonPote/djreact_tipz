@@ -8,6 +8,7 @@ import CreateProject from './containers/CreateProject'
 import SignUp from './containers/SignUp'
 import SignIn from './containers/SignIn'
 import ProjectPage from './containers/ProjectPage'
+import CompensationPage from './containers/CompensationPage'
 
 class App extends React.Component {
     render() {
@@ -31,6 +32,7 @@ render(
             <Route path='signIn' component={SignIn} />
             <Route path='createProject' component={CreateProject} />
             <Route path='project/:id' component={ProjectPage} />
+            <Route path='compensation/:id' component={CompensationPage} />
         </Route>
     </Router>,
     document.getElementById('root')
