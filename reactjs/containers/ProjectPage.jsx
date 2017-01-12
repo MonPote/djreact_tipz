@@ -26,7 +26,7 @@ export default class ProjectPage extends React.Component {
     }
 
     render() {
-
+        console.log('çomps = ', this.state.compensation);
         // FIXME Gestion de non présence de la data
         return (
             <div className="panel panel-info">
@@ -51,9 +51,9 @@ export default class ProjectPage extends React.Component {
                         <div className='panel panel-info'>
                             <div className="panel-heading">Liste des compensations</div>
                             <div className="panel-body">
-                                <ProjectCompensation compensation={{id: 1}}/>
-                                <ProjectCompensation compensation={{id: 2}}/>
-                                <ProjectCompensation compensation={{id: 3}}/>
+                                {
+                                    this.state.compensation.map(compensation => <ProjectCompensation key={compensation.id} compensation={compensation}/>)
+                                }
                             </div>
                         </div>
                     </div>
