@@ -3,3 +3,4 @@ djreact/__pycache__/
 webpack-stats-local.json
 .idea
 __pycache__
+api/migrations/
