@@ -62,11 +62,8 @@ export default class SignUp extends React.Component {
             // response.headers    //=> Headers
             // response.url        //=> String
             return response.text()
-        }, function (error) {
-
-            console.log(error.message);
         }).then((body) => {
-            if (body === 'EXIST') {
+            if (body === 'OK') {
                 localStorage.setItem('userName', this.state.email);
                 localStorage.setItem('password', this.state.password);
                 browserHistory.push('/');

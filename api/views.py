@@ -145,3 +145,13 @@ def addCompensationToProject(request, pk):
 
     return Response('OKAY')
 
+@api_view(['POST'])
+@csrf_exempt
+def getUserProject(request):
+    stringBody = request.body.decode('utf-8')
+    jsonBody = json.loads(stringBody)
+    user = User.objects.get(username=jsonBody['userEmail'])
+
+    projects = Project.objects.filter(ownerId=user.id)
+    serializer = ProjectSerializer(projects, many=True)
+    return Response(serializer.data)
